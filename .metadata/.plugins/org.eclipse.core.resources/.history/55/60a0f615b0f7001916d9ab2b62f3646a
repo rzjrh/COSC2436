@@ -1,0 +1,22 @@
+// Author: Reza Akhlaqi
+// Date: 10-26-2019
+
+
+/*Write a test program that prompts the user to enter a list and displays
+whether the list is sorted or not. Here is a sample run. Note that the program
+first prompts the user to enter the size of the list.*/
+
+
+
+
+public class IsSorted {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Please Enter the size of your list:");
+		
+		
+		
+	}
+
+}

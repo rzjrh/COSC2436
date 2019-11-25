@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class SortCheck {
+	
+	public static boolean isSorted(int[] list) {
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Please Enter the size of your list:");
+		int size = (sc.nextInt());
+		
+		if (size==0) {
+			return true;
+		}
+		
+		
+		return false;	
+	}
+
+}
