@@ -15,23 +15,21 @@
 		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
 		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\rzjrh\Desktop\Classes\COSC 2436\Assignments\Unit 5\COSC-2436-Unit5-Q22.7-RezaAkhlaqi.zip"/>
+			<item value="C:\Users\rzjrh\Desktop\Classes\COSC 2436\Assignments\Unit 4\COSC-2436-Unit4-Q20.23-RezaAkhlaqi.zip"/>
 			<item value="C:\Users\rzjrh\Desktop\Classes\COSC 2436\Assignments\COSC-2436-Unit1-RezaAkhlaqi.zip"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item key="dialogHeight" value="669"/>
-		<item key="dialogWidth" value="829"/>
+		<item key="dialogHeight" value="-1"/>
+		<item key="dialogWidth" value="-1"/>
 		<list key="orderedElements">
-			<item value="org.eclipse.egit.ui.RepositoriesViewClone"/>
 		</list>
 		<list key="orderedProviders">
-			<item value="org.eclipse.ui.commands"/>
 		</list>
 		<list key="textEntries">
-			<item value="1"/>
 		</list>
 		<list key="textArray">
-			<item value="clone"/>
 		</list>
 	</section>
 	<section name="FileSystemImportWizard">
