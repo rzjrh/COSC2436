@@ -66,12 +66,12 @@ public class Element {
         if(searchElement(hashMap,symbol))
         {
             hashMap.remove(symbol);
-            System.out.println("Element Deleted .....");
+            System.out.println("====Element Deleted!==== ");
             return true;
         }
         else
         {
-            System.out.println("Element not found....");
+            System.out.println("====Element is not in the database!====");
             return false;
         }
     }
