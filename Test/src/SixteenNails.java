@@ -1,9 +1,6 @@
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-import SixteenNails.TailModel;
 public class SixteenNails {
-
 	 
 	public static void main(String[] args) {
 		//prompt user to enter initial sixteen coins 
@@ -19,6 +16,7 @@ public class SixteenNails {
 		
 		//creating an integer type list 
 		List<Integer> shortPath = tailModel.getShortestPath(TailModel.getIndex(initNode)); 
+		
 		//when no solution exists 
 		if (shortPath == null) 
 		System.out.println("No solutions"); 
@@ -28,12 +26,14 @@ public class SixteenNails {
 			for (int itr = 0; itr < shortPath.size(); itr++) 
 				TailModel.nodePrint( TailModel.getNode(shortPath.get(itr)));
 			} } 
+	
+	
 	static class TailModel { 
 		//storing the dimension of the grid 
 		public final static int BOUNDARY_DIMENSION = 4; 
 		//storing number of nodes 
 		public final static int NO_OF_NODES = 1 
-			<< BOUNDARY_DIMENSION BOUNDARY_DIMENSION; 
+			<< BOUNDARY_DIMENSION*BOUNDARY_DIMENSION; 
 		// Defining a tree 
 		protected AbstractGraph<Integer>.Tree tree; 
 		
@@ -42,31 +42,36 @@ public class SixteenNails {
 			// Create edges for the model 
 			List<AbstractGraph.Edge> edge = getEdge(); 
 			// Creating graph 
-			UnweightedGraph<Integer> graph = new UnweightedGrapho( edge, NO_OF_NODES); 
+			UnweightedGraph<Integer> graph = new UnweightedGraph<>( edge, NO_OF_NODES); 
 			// Obtaining a BSF tree which is 
 			//rooted at target node 
 			tree = graph.bfs(NO_OF_NODES - 1); 
 	} 
 		
-		//creating all the edges for the graph 
-		private List<AbstractGraph.Edge> getEdge() { 
-			// Store edges 
-			
-			List<AbstractGraph.Edge> edge = new ArrayList<>0; 
+		//creating all the edges for the graph
+		private List<AbstractGraph.Edge> getEdge() { 		
+			// Store edges 			
+			List<AbstractGraph.Edge> edge = new ArrayList<>(); 
 		for (int u = 0; u < NO_OF_NODES; u++) { 
 			for (int itr = 0; itr < BOUNDARY_DIMENSION * BOUNDARY_DIMENSION; itr++) { 
 				// Get the node for vertex itrl 
 				char [] n = getNode(u); 
 				if (n[itr] == 'H') { 
-					int v = getFlipNode(n, itr); 
+					int v = getRpNode(n, itr); 
 					// Add edge for a legal move from u It node to v node 
 					edge.add(new AbstractGraph.Edge(v, u)); 
 					} } } 
-		return edge; } 
+		return edge; 
 				}
+		
+//		public static Object getIndex(char[] initNode) {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
+
 	
 	// method to get the flipped node 
-	public static int getRpNode(chara n, int pos) { 
+	public static int getRpNode(char[] n, int pos) { 
 		//assigning number or rows 
 		int row = pos / BOUNDARY_DIMENSION; 
 		//assigning number of columns 
@@ -78,13 +83,13 @@ public class SixteenNails {
 		flipCell(n, row, col - 1); 
 		flipCell(n, row, col + 1); 
 		//return index of n 
-		return getlndex(n); 
+		return getIndex(n); 
 
 			}
 	
 	
 	// method to flip a cell 
-	public static void flipCell(char0 n, int r, int c) { 
+	public static void flipCell(char[] n, int r, int c) { 
 		if (r >= 0 && r < BOUNDARY_DIMENSION && c >= 0 && c < BOUNDARY_DIMENSION) { 
 			// Within the boundary 
 			if (n[r* BOUNDARY_DIMENSION + c] == 'H') 
@@ -95,10 +100,11 @@ public class SixteenNails {
 			} } 
 
 	//method to return the index 
-	public static int getIndex(chara n) { 
+	public static int getIndex(char[] n) { 
 		int res = 0; 
 		for (int i = 0; i < BOUNDARY_DIMENSION * BOUNDARY_DIMENSION; i++) 
-			if (n[i] == 'T') res = res* 2 + 1; 
+			if (n[i] == 'T')
+				res = res* 2 + 1; 
 			else res = res* 2 + 0; 
 		return res; } 
 	
@@ -115,20 +121,20 @@ public class SixteenNails {
 	}
 		return res;
 	} 
+	
 	// method to get the shortest path from a particular 
 	//node 
 	public List<Integer> getShortestPath(int nlndex) 
 	{ 
 		//creating integer list to store the shortest path 
 		List<Integer> shortestPath = tree.getPath(nlndex); 
-		if (shortestPath.size() == 1 && shortestPath.get(0) != 
-				BOUNDARY_DIMENSION * BOUNDARY_DIMENSION - 1)
+		if (shortestPath.size() == 1 && shortestPath.get(0) != BOUNDARY_DIMENSION * BOUNDARY_DIMENSION - 1)
 			return null; 
 		else return shortestPath; 
 		} 
 	//method to print the node 
 	public static void nodePrint(char[] n) { 
-		for (int i = 0; i < BOUNDARY_DIMENSION * BOUNDARY DIMENSION; i++) 
+		for (int i = 0; i < BOUNDARY_DIMENSION * BOUNDARY_DIMENSION; i++) 
 			//checking if a row has been printed 
 			//of not 
 			if (i % BOUNDARY_DIMENSION != BOUNDARY_DIMENSION - 1) 
